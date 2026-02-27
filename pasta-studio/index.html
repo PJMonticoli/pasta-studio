@@ -12,24 +12,32 @@
   <meta property="og:type" content="website" />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="/src/style.css" />
 </head>
 <body>
 
-  <main class="landing">
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__container">
+      <a href="#hero" class="nav__brand">
+        <img src="/images/Logo_01.png" alt="Pasta Studio" class="nav__logo" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="#hero" class="nav__link">Inicio</a></li>
+        <li><a href="#info" class="nav__link">Sobre</a></li>
+        <li><a href="#location" class="nav__link">Encontranos</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- ============ HERO ============ -->
-    <section class="hero">
+  <!-- MAIN — scroll snap container -->
+  <main class="landing" id="landing">
+
+    <!-- HERO -->
+    <section class="hero section" id="hero">
       <div class="hero__content">
         <div class="hero__logo">
-          <h1 class="brand">
-            <span class="brand__line">Pasta</span>
-            <span class="brand__line">Studio</span>
-          </h1>
+          <img src="/images/Logo_01.png" alt="Pasta Studio" />
         </div>
 
         <p class="hero__tagline">
@@ -68,8 +76,8 @@
       </div>
     </section>
 
-    <!-- ============ INFO ============ -->
-    <section class="info">
+    <!-- INFO -->
+    <section class="info section" id="info">
       <div class="info__container">
         <h2 class="info__title">No solo pasta</h2>
         <p class="info__text">
@@ -114,8 +122,8 @@
       </div>
     </section>
 
-    <!-- ============ LOCATION ============ -->
-    <section class="location">
+    <!-- LOCATION -->
+    <section class="location section" id="location">
       <div class="location__container">
         <div class="location__info">
           <h2 class="location__title">Encontranos</h2>
@@ -147,9 +155,8 @@
       </div>
     </section>
 
-
-    <!-- ============ FOOTER ============ -->
-    <footer class="footer">
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
       <div class="footer__container">
         <div class="footer__social">
           <a
@@ -157,7 +164,6 @@
             class="footer__link"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Instagram de Pasta Studio"
           >
             <svg class="footer__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5"/>

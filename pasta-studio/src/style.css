@@ -1,20 +1,63 @@
 /* =====================
-   PASTA STUDIO® — Landing
+   FONTS
    ===================== */
+@font-face {
+  font-family: 'GT Planar';
+  src: url('/fonts/GTPlanarTrial-It30Bl.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
 
+@font-face {
+  font-family: 'Sharp Grotesk';
+  src: url('/fonts/SharpGrotesk-Light20.otf') format('opentype');
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sharp Grotesk';
+  src: url('/fonts/SharpGrotesk-Book20.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sharp Grotesk';
+  src: url('/fonts/SharpGrotesk-BookItalic20.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sharp Grotesk';
+  src: url('/fonts/SharpGrotesk-Medium20.otf') format('opentype');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sharp Grotesk';
+  src: url('/fonts/SharpGrotesk-SemiBold20.otf') format('opentype');
+  font-weight: 600;
+  font-display: swap;
+}
+
+/* =====================
+   TOKENS
+   ===================== */
 :root {
-  /* Palette */
   --color-olivo:        #243F2B;
   --color-cielo-studio: #BDCCDB;
   --color-notte:        #001A30;
   --color-salsa-fuego:  #CC470D;
   --color-semolino:     #DDD2BA;
 
-  /* Typography — swap when client sends GT Planar / Sharp Grotesk */
-  --font-display: 'GT Planar', 'Inter', system-ui, sans-serif;
-  --font-body:    'Sharp Grotesk', 'Inter', system-ui, sans-serif;
+  --font-display: 'GT Planar', system-ui, sans-serif;
+  --font-body:    'Sharp Grotesk', system-ui, sans-serif;
 
-  /* Spacing */
   --space-2xs: 0.25rem;
   --space-xs:  0.5rem;
   --space-sm:  1rem;
@@ -25,9 +68,12 @@
 
   --radius-md: 12px;
   --transition-base: 0.3s ease;
+  --nav-height: 60px;
 }
 
-/* Reset */
+/* =====================
+   RESET
+   ===================== */
 *,
 *::before,
 *::after {
@@ -61,6 +107,104 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+}
+
+/* =====================
+   SCROLL SNAP
+   ===================== */
+.landing {
+  height: 100dvh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+}
+
+.section {
+  scroll-snap-align: start;
+}
+
+/* =====================
+   NAV
+   ===================== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  background: rgba(0, 26, 48, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(189, 204, 219, 0.06);
+  transition: background var(--transition-base);
+}
+
+.nav__container {
+  max-width: 1100px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+}
+
+.nav__logo {
+  height: 28px;
+  width: auto;
+}
+
+.nav__links {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.nav__link {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-cielo-studio);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: var(--space-xs) 0;
+  position: relative;
+  transition: color var(--transition-base);
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-salsa-fuego);
+  transition: width var(--transition-base);
+}
+
+.nav__link:hover {
+  color: var(--color-semolino);
+}
+
+.nav__link:hover::after {
+  width: 100%;
+}
+
+.nav__link.active {
+  color: var(--color-salsa-fuego);
+}
+
+.nav__link.active::after {
+  width: 100%;
+}
+
 /* =====================
    HERO — Notte bg
    ===================== */
@@ -70,7 +214,7 @@ a {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: var(--space-md);
+  padding: var(--nav-height) var(--space-md) var(--space-md);
   background: var(--color-notte);
   position: relative;
   overflow: hidden;
@@ -98,23 +242,8 @@ a {
 }
 
 .hero__logo img {
-  max-width: 280px;
+  max-width: 320px;
   margin: 0 auto;
-}
-
-.brand {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-cielo-studio);
-  line-height: 1.05;
-  margin-bottom: var(--space-xs);
-}
-
-.brand__line {
-  display: block;
 }
 
 .hero__tagline {
@@ -148,7 +277,8 @@ a {
 .countdown__number {
   font-family: var(--font-display);
   font-size: clamp(2.8rem, 9vw, 5.5rem);
-  font-weight: 700;
+  font-weight: 900;
+  font-style: italic;
   color: var(--color-semolino);
   line-height: 1;
   letter-spacing: -0.02em;
@@ -173,7 +303,7 @@ a {
   font-family: var(--font-display);
   font-size: clamp(2rem, 6vw, 4rem);
   color: var(--color-salsa-fuego);
-  font-weight: 300;
+  font-weight: 900;
   line-height: 1;
   padding-top: 0.15em;
   animation: blink 1s step-end infinite;
@@ -208,8 +338,11 @@ a {
    INFO — Semolino bg
    ===================== */
 .info {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
   background-color: var(--color-semolino);
-  padding: var(--space-2xl) var(--space-md);
+  padding: var(--nav-height) var(--space-md) var(--space-md);
 }
 
 .info__container {
@@ -221,7 +354,8 @@ a {
 .info__title {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 400;
+  font-weight: 900;
+  font-style: italic;
   color: var(--color-notte);
   margin-bottom: var(--space-sm);
   letter-spacing: 0.03em;
@@ -274,7 +408,8 @@ a {
 .feature__title {
   font-family: var(--font-display);
   font-size: 1.15rem;
-  font-weight: 400;
+  font-weight: 900;
+  font-style: italic;
   color: var(--color-notte);
   margin-bottom: var(--space-xs);
   letter-spacing: 0.02em;
@@ -291,8 +426,11 @@ a {
    LOCATION — Notte bg
    ===================== */
 .location {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
   background-color: var(--color-notte);
-  padding: var(--space-2xl) var(--space-md);
+  padding: var(--nav-height) var(--space-md) var(--space-md);
 }
 
 .location__container {
@@ -302,6 +440,7 @@ a {
   grid-template-columns: 1fr 1.5fr;
   gap: var(--space-lg);
   align-items: center;
+  width: 100%;
 }
 
 .location__info {
@@ -311,7 +450,8 @@ a {
 .location__title {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 4vw, 2.5rem);
-  font-weight: 400;
+  font-weight: 900;
+  font-style: italic;
   color: var(--color-semolino);
   margin-bottom: var(--space-sm);
   letter-spacing: 0.03em;
@@ -345,7 +485,7 @@ a {
 
 .location__map {
   width: 100%;
-  height: 320px;
+  height: 350px;
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid rgba(189, 204, 219, 0.1);
@@ -358,13 +498,14 @@ a {
 }
 
 /* =====================
-   FOOTER — Notte bg
+   FOOTER
    ===================== */
 .footer {
   background-color: var(--color-notte);
   padding: var(--space-md);
   text-align: center;
   border-top: 1px solid rgba(189, 204, 219, 0.08);
+  scroll-snap-align: end;
 }
 
 .footer__container {
@@ -429,8 +570,20 @@ a {
    RESPONSIVE
    ===================== */
 @media (max-width: 768px) {
+  .nav__links {
+    gap: var(--space-sm);
+  }
+
+  .nav__link {
+    font-size: 0.7rem;
+  }
+
   .hero {
-    padding: var(--space-md) var(--space-sm);
+    padding: calc(var(--nav-height) + var(--space-sm)) var(--space-sm) var(--space-sm);
+  }
+
+  .hero__logo img {
+    max-width: 220px;
   }
 
   .hero__tagline {
@@ -438,7 +591,7 @@ a {
   }
 
   .info {
-    padding: var(--space-xl) var(--space-sm);
+    padding: calc(var(--nav-height) + var(--space-sm)) var(--space-sm) var(--space-sm);
   }
 
   .info__features {
@@ -450,7 +603,7 @@ a {
   }
 
   .location {
-    padding: var(--space-xl) var(--space-sm);
+    padding: calc(var(--nav-height) + var(--space-sm)) var(--space-sm) var(--space-sm);
   }
 
   .location__container {
@@ -468,9 +621,8 @@ a {
 }
 
 @media (max-width: 480px) {
-  .brand {
-    font-size: clamp(2rem, 12vw, 3rem);
-    letter-spacing: 0.08em;
+  .nav__logo {
+    height: 22px;
   }
 
   .countdown {
@@ -502,10 +654,6 @@ a {
   .feature {
     padding: var(--space-sm);
   }
-
-  .footer {
-    padding: var(--space-sm);
-  }
 }
 
 @media (min-width: 1200px) {
@@ -519,6 +667,10 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .landing {
+    scroll-snap-type: none;
+  }
+
   *,
   *::before,
   *::after {
