@@ -1,182 +1,246 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Primary Meta -->
-  <title>Pasta Studio — Próxima Apertura</title>
-  <meta name="description" content="New Tradizione. Abrimos el 13 de abril en Jesús María, Córdoba." />
+    <!-- Primary Meta -->
+    <title>Pasta Studio — Próxima Apertura</title>
+    <meta
+      name="description"
+      content="New Tradizione. Abrimos el 13 de abril en Jesús María, Córdoba."
+    />
 
-  <!-- Open Graph (WhatsApp, Facebook, Telegram) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://pastastudio.netlify.app/" />
-  <meta property="og:title" content="Pasta Studio — Próxima Apertura" />
-  <meta property="og:description" content="New Tradizione. Abrimos el 13 de abril en Jesús María, Córdoba." />
-  <meta property="og:image" content="https://pastastudio.netlify.app/images/Logo_02_link.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+    <!-- Open Graph  -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pastastudio.netlify.app/" />
+    <meta property="og:title" content="Pasta Studio — Próxima Apertura" />
+    <meta
+      property="og:description"
+      content="New Tradizione. Abrimos el 13 de abril en Jesús María, Córdoba."
+    />
+    <meta
+      property="og:image"
+      content="https://pastastudio.netlify.app/images/Logo_02_link.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
-  <!-- Twitter/X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pasta Studio — Próxima Apertura" />
-  <meta name="twitter:description" content="New Tradizione. Abrimos el 13 de abril en Jesús María, Córdoba." />
-  <meta name="twitter:image" content="https://pastastudio.netlify.app/images/og-image.png" />
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pasta Studio — Próxima Apertura" />
+    <meta
+      name="twitter:description"
+      content="New Tradizione. Abrimos el 13 de abril en Jesús María, Córdoba."
+    />
+    <meta
+      name="twitter:image"
+      content="https://pastastudio.netlify.app/images/og-image.png"
+    />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/apple-touch-icon.png"
+    />
 
-  <link rel="stylesheet" href="/src/style.css" />
-</head>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
 
-<body>
-
-  <!-- NAV -->
-  <nav class="nav" id="nav">
-    <div class="nav__container">
-      <a href="#hero" class="nav__brand">
-        <img src="/images/Logo_02.png" alt="Pasta Studio" class="nav__logo" />
-      </a>
-      <ul class="nav__links">
-        <li><a href="#hero" class="nav__link">Inicio</a></li>
-        <li><a href="#info" class="nav__link">Sobre</a></li>
-        <li><a href="#location" class="nav__link">Encontranos</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- MAIN — scroll snap container -->
-  <main class="landing" id="landing">
-
-    <!-- HERO -->
-    <section class="hero section" id="hero">
-      <div class="hero__content">
-        <div class="hero__logo">
-          <img src="/images/Logo_02.png" alt="Pasta Studio" />
-        </div>
-
-        <p class="hero__tagline">
-          Una combinación que une lo orgánico y lo contemporáneo.
-          Inspirada en la cocina italiana, los materiales nobles
-          y los contrastes urbanos.
-        </p>
-
-        <div class="countdown" id="countdown" aria-label="Cuenta regresiva para la apertura">
-          <div class="countdown__block">
-            <span class="countdown__number" id="days">00</span>
-            <span class="countdown__label">Días</span>
-          </div>
-          <div class="countdown__separator">:</div>
-          <div class="countdown__block">
-            <span class="countdown__number" id="hours">00</span>
-            <span class="countdown__label">Horas</span>
-          </div>
-          <div class="countdown__separator">:</div>
-          <div class="countdown__block">
-            <span class="countdown__number" id="minutes">00</span>
-            <span class="countdown__label">Minutos</span>
-          </div>
-          <div class="countdown__separator">:</div>
-          <div class="countdown__block">
-            <span class="countdown__number" id="seconds">00</span>
-            <span class="countdown__label">Segundos</span>
-          </div>
-        </div>
-
-        <p class="hero__date">
-          13 de Abril 2026 — Apertura Oficial
-        </p>
-
-        <p class="hero__phrase">New Tradizione</p>
+  <body>
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+      <div class="nav__container">
+        <a href="#hero" class="nav__brand">
+          <img src="/images/Logo_02.png" alt="Pasta Studio" class="nav__logo" />
+        </a>
+        <ul class="nav__links">
+          <li><a href="#hero" class="nav__link">Inicio</a></li>
+          <li><a href="#info" class="nav__link">Sobre Nosotros</a></li>
+          <li><a href="#location" class="nav__link">Encontranos</a></li>
+        </ul>
       </div>
-    </section>
+    </nav>
 
-    <!-- INFO -->
-    <section class="info section" id="info">
-      <div class="info__container">
-        <h2 class="info__title">No solo pasta</h2>
-        <p class="info__text">
-          Una propuesta pensada para el movimiento constante: eventos,
-          encuentros y colaboraciones que expanden la experiencia
-          de la marca. Mantiene la esencia gastronómica, pero la traslada
-          a un formato flexible, visual y actual.
-        </p>
-
-        <div class="info__features">
-          <div class="feature">
-            <svg class="feature__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 28c0-8 4-12 12-14M32 28c0-8-4-12-12-14"/>
-              <path d="M20 14V8"/>
-              <circle cx="20" cy="6" r="2"/>
-              <path d="M6 28h28"/>
-              <path d="M10 28c0 2 4 4 10 4s10-2 10-4"/>
-            </svg>
-            <h3 class="feature__title">Pasta Artesanal</h3>
-            <p class="feature__text">Elaboración diaria con ingredientes nobles</p>
+    <!-- MAIN — scroll snap container -->
+    <main class="landing" id="landing">
+      <!-- HERO -->
+      <section class="hero section" id="hero">
+        <div class="hero__content">
+          <div class="hero__logo">
+            <img src="/images/Logo_02.png" alt="Pasta Studio" />
           </div>
 
-          <div class="feature">
-            <svg class="feature__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="8" y="16" width="24" height="16" rx="2"/>
-              <path d="M12 16V12a8 8 0 0 1 16 0v4"/>
-              <circle cx="20" cy="25" r="2"/>
-              <path d="M20 27v3"/>
-            </svg>
-            <h3 class="feature__title">Experiencia Única</h3>
-            <p class="feature__text">Cocina abierta y propuesta contemporánea</p>
-          </div>
-
-          <div class="feature">
-            <svg class="feature__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 6l4 8h8l-6 5 2 9-8-5-8 5 2-9-6-5h8z"/>
-            </svg>
-            <h3 class="feature__title">Eventos</h3>
-            <p class="feature__text">Encuentros y colaboraciones exclusivas</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LOCATION -->
-    <section class="location section" id="location">
-      <div class="location__container">
-        <div class="location__info">
-          <h2 class="location__title">Encontranos</h2>
-          <p class="location__address">
-            C. Córdoba 130<br />
-            Jesús María, Córdoba
+          <p class="hero__tagline">
+            Una combinación que une lo orgánico y lo contemporáneo. Inspirada en
+            la cocina italiana, los materiales nobles y los contrastes urbanos.
           </p>
-          <a
-            href="https://maps.app.goo.gl/QmhJeEcX8PYNzJJ99"
-            class="location__cta"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Cómo llegar →
-          </a>
-        </div>
-        <div class="location__map">
-          <iframe
-            src="https://maps.google.com/maps?q=C.+C%C3%B3rdoba+130,+Jes%C3%BAs+Mar%C3%ADa,+C%C3%B3rdoba,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed"
-            width="100%"
-            height="100%"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Ubicación de Pasta Studio"
-          ></iframe>
-        </div>
-      </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="footer" id="footer">
-      <div class="footer__container">
-        <div class="footer__social">
+          <div
+            class="countdown"
+            id="countdown"
+            aria-label="Cuenta regresiva para la apertura"
+          >
+            <div class="countdown__block">
+              <span class="countdown__number" id="days">00</span>
+              <span class="countdown__label">Días</span>
+            </div>
+            <div class="countdown__separator">:</div>
+            <div class="countdown__block">
+              <span class="countdown__number" id="hours">00</span>
+              <span class="countdown__label">Horas</span>
+            </div>
+            <div class="countdown__separator">:</div>
+            <div class="countdown__block">
+              <span class="countdown__number" id="minutes">00</span>
+              <span class="countdown__label">Minutos</span>
+            </div>
+            <div class="countdown__separator">:</div>
+            <div class="countdown__block">
+              <span class="countdown__number" id="seconds">00</span>
+              <span class="countdown__label">Segundos</span>
+            </div>
+          </div>
+
+          <p class="hero__date">13 de Abril 2026 — Apertura Oficial</p>
+
+          <p class="hero__phrase">New Tradizione</p>
+        </div>
+      </section>
+
+      <!-- INFO -->
+      <section class="info section" id="info">
+        <div class="info__container">
+          <div class="info__header">
+            <div class="info__text-block">
+              <h2 class="info__title">No solo pasta</h2>
+              <p class="info__text">
+                Una propuesta pensada para el movimiento constante: eventos,
+                encuentros y colaboraciones que expanden la experiencia de la
+                marca. Mantiene la esencia gastronómica, pero la traslada a un
+                formato flexible, visual y actual.
+              </p>
+            </div>
+            <div class="info__illustration">
+              <img src="/images/Ilustracion_tomate.png" alt="" />
+            </div>
+          </div>
+
+          <div class="info__features">
+            <div class="feature">
+              <img
+                src="/images/Ilustracion_vino.png"
+                alt=""
+                class="feature__illustration"
+              />
+              <h3 class="feature__title">Eventos</h3>
+              <p class="feature__text">
+                Encuentros y colaboraciones exclusivas
+              </p>
+            </div>
+
+            <div class="feature">
+              <svg
+                class="feature__icon"
+                viewBox="0 0 40 40"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M8 28c0-8 4-12 12-14M32 28c0-8-4-12-12-14" />
+                <path d="M20 14V8" />
+                <circle cx="20" cy="6" r="2" />
+                <path d="M6 28h28" />
+                <path d="M10 28c0 2 4 4 10 4s10-2 10-4" />
+              </svg>
+              <h3 class="feature__title">Pasta Artesanal</h3>
+              <p class="feature__text">
+                Elaboración diaria con ingredientes nobles
+              </p>
+            </div>
+
+            <div class="feature">
+              <svg
+                class="feature__icon"
+                viewBox="0 0 40 40"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M20 6l4 8h8l-6 5 2 9-8-5-8 5 2-9-6-5h8z" />
+              </svg>
+              <h3 class="feature__title">Experiencia Única</h3>
+              <p class="feature__text">
+                Cocina abierta y propuesta contemporánea
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOCATION -->
+      <section class="location section" id="location">
+        <div class="location__container">
+          <div class="location__info">
+            <img
+              src="/images/Ilustracion_tomate.png"
+              alt=""
+              class="location__illustration"
+            />
+            <h2 class="location__title">Encontranos</h2>
+            <p class="location__address">
+              C. Córdoba 130<br />
+              Jesús María, Córdoba
+            </p>
+            <a
+              href="https://maps.app.goo.gl/QmhJeEcX8PYNzJJ99"
+              class="location__cta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Cómo llegar →
+            </a>
+          </div>
+          <div class="location__map">
+            <iframe
+              src="https://maps.google.com/maps?q=C.+C%C3%B3rdoba+130,+Jes%C3%BAs+Mar%C3%ADa,+C%C3%B3rdoba,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicación de Pasta Studio"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer" id="footer">
+        <div class="footer__container">
+          <a href="#hero" class="footer__brand">
+            <img src="/images/Logo_01.png" alt="Pasta Studio" class="footer__logo" />
+          </a>
+          <p class="footer__phrase">New Tradizione</p>
           <a
             href="https://www.instagram.com/pastastudio.ar/"
             class="footer__link"
@@ -188,15 +252,14 @@
               <circle cx="12" cy="12" r="5"/>
               <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
             </svg>
-            <span>@pastastudio.ar</span>
+            @pastastudio.ar
           </a>
+          <p class="footer__copy">© <span id="year"></span> Pasta Studio</p>
         </div>
-        <p class="footer__copy">© <span id="year"></span> Pasta Studio. Todos los derechos reservados.</p>
-      </div>
-    </footer>
+      </footer>
 
-  </main>
+    </main>
 
-  <script type="module" src="/src/main.js"></script>
-</body>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
