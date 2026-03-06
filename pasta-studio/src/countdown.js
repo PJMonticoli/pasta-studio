@@ -3,7 +3,7 @@
  * Target: 13 de Abril 2026, 12:00 HS Argentina (UTC-3)
  */
 
-const TARGET_DATE = new Date('2026-04-13T12:00:00-03:00');
+const TARGET_DATE = new Date('2026-03-06T12:00:00-03:00');
 
 const elements = {
   days: null,
@@ -51,15 +51,36 @@ function updateDisplay(time) {
 
 function handleExpired() {
   const countdownEl = document.getElementById('countdown');
+  
+  const dateText = document.querySelector('.hero__date');
+  if (dateText) dateText.style.display = 'none';
+
   if (countdownEl) {
     countdownEl.innerHTML = `
-      <p style="
-        font-family: var(--font-display);
-        font-size: clamp(1.5rem, 4vw, 2.5rem);
-        color: var(--color-accent);
-      ">
-        🎉 ¡Ya estamos abiertos!
-      </p>
+      <div style="text-align: center; animation: fadeInUp 0.8s ease;">
+        <p style="
+          font-family: var(--font-display);
+          font-size: clamp(2.5rem, 6vw, 4.5rem);
+          font-weight: 900;
+          font-style: italic;
+          color: var(--color-semolino);
+          line-height: 1.1;
+          margin-bottom: 0.5rem;
+          text-transform: uppercase;
+        ">
+          ¡ABRIMOS!
+        </p>
+        <p style="
+          font-family: var(--font-body);
+          font-size: clamp(1rem, 2vw, 1.25rem);
+          color: var(--color-salsa-fuego);
+          text-transform: uppercase;
+          letter-spacing: 0.15em;
+          font-weight: 600;
+        ">
+          TE ESPERAMOS
+        </p>
+      </div>
     `;
   }
 }
