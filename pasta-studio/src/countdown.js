@@ -3,7 +3,7 @@
  * Target: 13 de Abril 2026, 12:00 HS Argentina (UTC-3)
  */
 
-const TARGET_DATE = new Date('2026-03-06T12:00:00-03:00');
+const TARGET_DATE = new Date('2026-04-13T12:00:00-03:00');
 
 const elements = {
   days: null,
