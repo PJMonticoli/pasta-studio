@@ -464,7 +464,7 @@ ul {
    LOCATION — Notte bg
    ===================== */
 .location {
-  min-height: 80dvh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -596,7 +596,7 @@ ul {
 }
 .footer__icon {
   width: 16px;
-  height: 100px;
+  height: 16px;
 }
 .footer__copy {
   font-size: 0.65rem;
