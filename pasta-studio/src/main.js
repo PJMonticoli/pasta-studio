@@ -1,8 +1,10 @@
 import './style.css';
 import { initCountdown } from './countdown.js';
+import { initForm } from './form.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initCountdown();
+  initForm();
   document.getElementById('year').textContent = new Date().getFullYear();
 
   // Active nav link on scroll

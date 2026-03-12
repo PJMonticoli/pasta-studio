@@ -460,6 +460,182 @@ ul {
   line-height: 1.6;
 }
 
+
+/* =====================
+   RESERVA — Notte bg
+   ===================== */
+.reserva {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-notte);
+  padding: calc(var(--nav-height) + var(--space-md)) var(--space-md) var(--space-md);
+  position: relative;
+}
+.reserva::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 60% 40%, rgba(204, 71, 13, 0.04) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(36, 63, 43, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.reserva__container {
+  max-width: 580px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+/* Header */
+.reserva__header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+.reserva__illustration {
+  width: 64px;
+  height: auto;
+  margin: 0 auto var(--space-sm);
+  opacity: 0.85;
+}
+.reserva__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--color-semolino);
+  margin-bottom: var(--space-xs);
+  letter-spacing: 0.03em;
+}
+.reserva__subtitle {
+  font-size: clamp(0.85rem, 1.6vw, 1rem);
+  font-weight: 300;
+  color: var(--color-cielo-studio);
+  line-height: 1.7;
+  max-width: 460px;
+  margin: 0 auto;
+  opacity: 0.8;
+}
+/* Form layout */
+.reserva__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.reserva__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+.reserva__row--single {
+  grid-template-columns: 1fr;
+  max-width: 280px;
+  margin: 0 auto;
+  width: 100%;
+}
+.reserva__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+.reserva__label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-cielo-studio);
+  opacity: 0.6;
+}
+/* Inputs */
+.reserva__input {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--color-semolino);
+  background: rgba(189, 204, 219, 0.06);
+  border: 1px solid rgba(189, 204, 219, 0.12);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  outline: none;
+  transition:
+    border-color var(--transition-base),
+    background-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+.reserva__input::placeholder {
+  color: var(--color-cielo-studio);
+  opacity: 0.3;
+}
+.reserva__input:focus {
+  border-color: var(--color-salsa-fuego);
+  background: rgba(189, 204, 219, 0.1);
+  box-shadow: 0 0 0 3px rgba(204, 71, 13, 0.12);
+}
+/* Date input color-scheme for dark bg */
+.reserva__input[type='date'] {
+  color-scheme: dark;
+}
+/* Validation states */
+.reserva__input:user-invalid {
+  border-color: #cc2d0d;
+}
+/* Honeypot */
+.reserva__hp {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+/* Submit button */
+.reserva__submit {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--color-semolino);
+  background: var(--color-salsa-fuego);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 1rem 2rem;
+  margin-top: var(--space-xs);
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition:
+    background-color var(--transition-base),
+    transform var(--transition-base),
+    opacity var(--transition-base);
+}
+.reserva__submit:hover {
+  background: #b33d0b;
+  transform: translateY(-2px);
+}
+.reserva__submit:active {
+  transform: translateY(0);
+}
+.reserva__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+/* Feedback message */
+.reserva__feedback {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  min-height: 1.4em;
+  transition: opacity var(--transition-base);
+}
+.reserva__feedback--success {
+  color: #7dcea0;
+}
+.reserva__feedback--error {
+  color: #e74c3c;
+}
+
 /* =====================
    LOCATION — Notte bg
    ===================== */
@@ -605,6 +781,56 @@ ul {
 }
 
 /* =====================
+   TOAST NOTIFICATION
+   ===================== */
+.toast {
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  background: var(--color-semolino);
+  color: var(--color-notte);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(204, 71, 13, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: calc(100vw - 2rem);
+  white-space: nowrap;
+  opacity: 0;
+  transition:
+    bottom 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.4s ease;
+  pointer-events: none;
+}
+.toast--visible {
+  bottom: 2rem;
+  opacity: 1;
+  pointer-events: auto;
+}
+.toast__icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.toast__message {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.toast__accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 900;
+  color: var(--color-salsa-fuego);
+}
+
+/* =====================
    ANIMATIONS
    ===================== */
 @keyframes fadeInUp {
@@ -625,15 +851,21 @@ ul {
 /* =====================
    RESPONSIVE
    ===================== */
+
+/* ----- Tablet / Small screens ----- */
 @media (max-width: 768px) {
+
+  /* NAV */
   .nav__links {
-    gap: var(--space-sm);
+    gap: var(--space-xs);
   }
 
   .nav__link {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
   }
 
+  /* HERO */
   .hero {
     padding: calc(var(--nav-height) + var(--space-sm)) var(--space-sm) var(--space-sm);
   }
@@ -646,6 +878,7 @@ ul {
     max-width: 400px;
   }
 
+  /* INFO */
   .info {
     padding: calc(var(--nav-height) + var(--space-sm)) var(--space-sm) var(--space-sm);
   }
@@ -672,6 +905,28 @@ ul {
     margin-right: auto;
   }
 
+  /* RESERVA */
+  .reserva {
+    padding: calc(var(--nav-height) + var(--space-sm)) var(--space-sm) var(--space-sm);
+  }
+
+  .reserva__container {
+    max-width: 100%;
+  }
+
+  .reserva__row {
+    grid-template-columns: 1fr;
+  }
+
+  .reserva__row--single {
+    max-width: 100%;
+  }
+
+  .reserva__subtitle {
+    max-width: 100%;
+  }
+
+  /* LOCATION */
   .location {
     padding: calc(var(--nav-height) + var(--space-sm)) var(--space-sm) var(--space-sm);
   }
@@ -694,16 +949,34 @@ ul {
     height: 260px;
   }
 
+  /* FOOTER */
   .footer__container {
     gap: var(--space-sm);
   }
 }
 
+/* ----- Mobile ----- */
 @media (max-width: 480px) {
+
+  /* NAV — compacto para 4 links en pantalla chica */
+  .nav__container {
+    padding: 0 var(--space-sm);
+  }
+
   .nav__logo {
     height: 22px;
   }
 
+  .nav__links {
+    gap: 0.4rem;
+  }
+
+  .nav__link {
+    font-size: 0.55rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* HERO */
   .countdown {
     gap: 0.4rem;
   }
@@ -730,11 +1003,67 @@ ul {
     padding: var(--space-2xs) var(--space-xs);
   }
 
+  /* INFO */
   .feature {
     padding: var(--space-sm);
   }
+
+  /* RESERVA — mobile optimized */
+  .reserva {
+    padding: calc(var(--nav-height) + var(--space-xs)) var(--space-xs) var(--space-sm);
+  }
+
+  .reserva__header {
+    margin-bottom: var(--space-md);
+  }
+
+  .reserva__illustration {
+    width: 48px;
+  }
+
+  .reserva__title {
+    font-size: clamp(1.5rem, 7vw, 1.8rem);
+  }
+
+  .reserva__subtitle {
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  .reserva__form {
+    gap: 0.75rem;
+  }
+
+  .reserva__label {
+    font-size: 0.65rem;
+  }
+
+  .reserva__input {
+    font-size: 1rem;       
+    padding: 0.7rem 0.85rem;
+    border-radius: 10px;
+  }
+
+  .reserva__submit {
+    font-size: 0.95rem;
+    padding: 0.9rem 1.5rem;
+    width: 100%;            
+    border-radius: 10px;
+  }
+
+  .reserva__feedback {
+    font-size: 0.8rem;
+  }
+  
+  .toast {
+    font-size: 0.82rem;
+    padding: 0.85rem 1.2rem;
+    white-space: normal;
+    text-align: center;
+  }
 }
 
+/* ----- Large screens ----- */
 @media (min-width: 1200px) {
   .hero__content {
     max-width: 900px;
@@ -743,8 +1072,13 @@ ul {
   .info__container {
     max-width: 1060px;
   }
+
+  .reserva__container {
+    max-width: 640px;
+  }
 }
 
+/* ----- Accessibility ----- */
 @media (prefers-reduced-motion: reduce) {
   .landing {
     scroll-snap-type: none;
