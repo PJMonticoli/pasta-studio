@@ -319,7 +319,7 @@ ul {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: var(--space-xs) var(--space-sm);
-  border: 1px solid rgba(221, 210, 186, 0.2);
+  /* border: 1px solid rgba(221, 210, 186, 0.2); */
   border-radius: 100px;
 }
 
@@ -331,6 +331,34 @@ ul {
   letter-spacing: 0.05em;
   margin-top: var(--space-md);
   opacity: 0.9;
+}
+
+.hero__cta {
+  display: block;                          
+  width: fit-content;
+  margin: var(--space-md) auto 0;          
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+  font-weight: 900;
+  color: var(--color-semolino);
+  background: var(--color-salsa-fuego);
+  padding: 0.85rem 2.2rem;
+  border-radius: 100px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition:
+    background-color var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+.hero__cta:hover {
+  background: #b33d0b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(204, 71, 13, 0.3);
+}
+.hero__cta:active {
+  transform: translateY(0);
 }
 
 /* =====================
@@ -531,8 +559,8 @@ ul {
 }
 .reserva__row--single {
   grid-template-columns: 1fr;
-  max-width: 280px;
-  margin: 0 auto;
+  /* max-width: 280px;
+  margin: 0 auto; */
   width: 100%;
 }
 .reserva__field {
@@ -1001,6 +1029,13 @@ ul {
   .hero__date {
     font-size: 0.7rem;
     padding: var(--space-2xs) var(--space-xs);
+  }
+
+  .hero__cta {
+    font-size: 0.85rem;
+    padding: 0.75rem 1.8rem;
+    width: 100%;
+    text-align: center;
   }
 
   /* INFO */
