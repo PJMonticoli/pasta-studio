@@ -235,14 +235,7 @@ ul {
 
 /* Gradiente sutil de marca en las esquinas */
 .hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 0% 100%, rgba(36, 63, 43, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 100% 0%, rgba(204, 71, 13, 0.05) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
 .hero__content {
