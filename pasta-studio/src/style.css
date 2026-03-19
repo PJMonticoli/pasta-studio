@@ -824,63 +824,50 @@ ul {
    RESPONSIVE — Tablet
    ===================== */
 @media (max-width: 768px) {
-
   /* NAV */
   .nav__links {
     gap: var(--space-xs);
   }
-
   .nav__link {
     font-size: 0.65rem;
     letter-spacing: 0.04em;
   }
-
   /* HERO */
   .hero {
     padding: calc(var(--nav-height) + var(--space-sm)) var(--space-sm) var(--space-md);
     align-items: flex-start;
   }
-
   .hero__content {
     gap: var(--space-md);
   }
-
   .hero__logo img {
     max-width: 220px;
   }
-
   .hero__form-wrapper {
     padding: var(--space-md) var(--space-sm);
   }
-
   /* RESERVA */
   .reserva__row {
     grid-template-columns: 1fr;
   }
-
   .reserva__subtitle {
     max-width: 100%;
   }
-
   /* INFO */
   .info {
     padding: calc(var(--nav-height) + var(--space-sm)) var(--space-sm) var(--space-sm);
   }
-
   .info__header {
     grid-template-columns: 1fr;
     text-align: center;
   }
-
   .info__text-block {
     text-align: center;
   }
-
   .info__illustration img {
     max-width: 140px;
     margin: 0 auto;
   }
-
   .info__features {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
@@ -888,107 +875,94 @@ ul {
     margin-left: auto;
     margin-right: auto;
   }
-
   /* LOCATION */
   .location {
     padding: calc(var(--nav-height) + var(--space-sm)) var(--space-sm) var(--space-sm);
   }
-
   .location__container {
     grid-template-columns: 1fr;
     text-align: center;
   }
-
   .location__info {
     text-align: center;
   }
-
   .location__illustration {
     margin-left: auto;
     margin-right: auto;
   }
-
   .location__map {
     height: 260px;
   }
-
   /* FOOTER */
   .footer__container {
     gap: var(--space-sm);
   }
 }
-
 /* =====================
    RESPONSIVE — Mobile
    ===================== */
 @media (max-width: 480px) {
-
   /* NAV */
   .nav__container {
     padding: 0 var(--space-sm);
   }
-
   .nav__logo {
     height: 22px;
   }
-
   .nav__links {
     gap: 0.4rem;
   }
-
   .nav__link {
     font-size: 0.55rem;
     letter-spacing: 0.02em;
   }
-
-  /* HERO */
+  /* HERO  */
+  .hero {
+    align-items: flex-start;
+    padding-top: calc(var(--nav-height) + var(--space-md));
+  }
+  .hero__logo {
+    padding: 0 var(--space-md) var(--space-xs);
+  }
   .hero__logo img {
-    max-width: 180px;
+    max-width: 160px;
   }
 
   .hero__form-wrapper {
-    padding: var(--space-md) var(--space-xs);
+    margin: 0 var(--space-xs);
+    padding: var(--space-md) var(--space-sm);
     border-radius: 10px;
   }
-
   .reserva__title {
     font-size: clamp(1.4rem, 6vw, 1.7rem);
   }
-
   .reserva__subtitle {
     font-size: 0.82rem;
     line-height: 1.6;
   }
-
   .reserva__form {
     gap: 0.75rem;
   }
-
   .reserva__label {
     font-size: 0.62rem;
   }
-
   .reserva__input {
     font-size: 1rem;
     padding: 0.7rem 0.85rem;
     border-radius: 10px;
   }
-
   .reserva__submit {
     font-size: 0.95rem;
     padding: 0.9rem 1.5rem;
     border-radius: 10px;
   }
-
   .reserva__feedback {
     font-size: 0.8rem;
   }
-
   /* INFO */
   .feature {
     padding: var(--space-sm);
   }
-
   /* TOAST */
   .toast {
     font-size: 0.82rem;
@@ -997,7 +971,6 @@ ul {
     text-align: center;
   }
 }
-
 /* =====================
    RESPONSIVE — Large
    ===================== */
@@ -1005,16 +978,13 @@ ul {
   .hero__content {
     max-width: 720px;
   }
-
   .hero__form-wrapper {
     max-width: 680px;
   }
-
   .info__container {
     max-width: 1060px;
   }
 }
-
 /* =====================
    Accessibility
    ===================== */
@@ -1022,7 +992,6 @@ ul {
   .landing {
     scroll-snap-type: none;
   }
-
   *,
   *::before,
   *::after {
