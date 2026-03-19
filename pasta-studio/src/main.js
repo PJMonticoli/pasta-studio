@@ -1,9 +1,7 @@
 import './style.css';
-import { initCountdown } from './countdown.js';
 import { initForm } from './form.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  initCountdown();
   initForm();
   document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -33,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   landing.addEventListener('scroll', updateActiveLink);
   updateActiveLink();
 
-  // Smooth scroll for nav links (within snap container)
+  // Smooth scroll for nav links
   navLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
       e.preventDefault();

@@ -205,7 +205,8 @@ ul {
 }
 
 /* =====================
-   HERO
+   HERO — v2 (sin countdown)
+   Background: franjas verticales alternadas
    ===================== */
 .hero {
   min-height: 100dvh;
@@ -213,198 +214,288 @@ ul {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: var(--nav-height) var(--space-md) var(--space-md);
-  background: var(--color-notte);
+  padding: calc(var(--nav-height) + var(--space-md)) var(--space-md) var(--space-lg);
   position: relative;
   overflow: hidden;
+
+  /* Grid vertical alternado: cielo-studio / semolino */
+  background: repeating-linear-gradient(
+    to right,
+    var(--color-cielo-studio) 0px,
+    var(--color-cielo-studio) 160px,
+    var(--color-semolino)     160px,
+    var(--color-semolino)     320px
+  );
 }
 
+/* Overlay oscuro para que el contenido sea legible */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 26, 48, 0.55);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Toque sutil de color de marca */
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 30% 70%, rgba(36, 63, 43, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 30%, rgba(204, 71, 13, 0.03) 0%, transparent 50%);
+    radial-gradient(ellipse at 30% 70%, rgba(36, 63, 43, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 20%, rgba(204, 71, 13, 0.06) 0%, transparent 50%);
   pointer-events: none;
+  z-index: 0;
 }
 
 .hero__content {
-  max-width: 800px;
+  max-width: 680px;
+  width: 100%;
   position: relative;
   z-index: 1;
   animation: fadeInUp 0.8s ease-out;
-}
-
-.hero__logo {
-  margin-bottom: var(--space-lg);
-}
-
-.hero__logo img {
-  max-width: 320px;
-  margin: 0 auto;
-}
-
-.hero__tagline {
-  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
-  font-weight: 300;
-  color: var(--color-cielo-studio);
-  max-width: 500px;
-  margin: 0 auto var(--space-xl);
-  line-height: 1.8;
-  opacity: 0.85;
-}
-
-/* Phase label */
-.hero__phase-label {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
-  font-weight: 900;
-  color: var(--color-salsa-fuego);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: var(--space-sm);
-  opacity: 0.9;
-}
-
-/* Hero date — subtle, no border */
-.hero__date {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: var(--color-cielo-studio);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.5;
-}
-
-/* Hero CTA Button */
-.hero__cta {
-  display: block;
-  width: fit-content;
-  margin: var(--space-md) auto 0;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(0.85rem, 1.8vw, 1rem);
-  font-weight: 900;
-  color: var(--color-semolino);
-  background: var(--color-salsa-fuego);
-  padding: 0.85rem 2.2rem;
-  border-radius: 100px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  transition:
-    background-color var(--transition-base),
-    transform var(--transition-base),
-    box-shadow var(--transition-base);
-}
-
-.hero__cta:hover {
-  background: #b33d0b;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(204, 71, 13, 0.3);
-}
-
-.hero__cta:active {
-  transform: translateY(0);
-}
-
-/* =====================
-   COUNTDOWN
-   ===================== */
-.countdown {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: clamp(0.6rem, 3vw, 1.5rem);
-  margin-bottom: var(--space-lg);
-}
-
-.countdown__block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 60px;
+  gap: var(--space-lg);
 }
 
-.countdown__number {
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 9vw, 5.5rem);
-  font-weight: 900;
-  font-style: italic;
-  color: var(--color-semolino);
-  line-height: 1;
-  letter-spacing: -0.02em;
-  transition: transform var(--transition-base);
+/* Logo */
+.hero__logo {
+  /* sin margen extra: lo maneja el gap del flex */
 }
 
-.countdown__number.tick {
-  transform: scale(1.05);
-}
-
-.countdown__label {
-  font-size: 0.65rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--color-cielo-studio);
-  opacity: 0.6;
-  margin-top: var(--space-xs);
-}
-
-.countdown__separator {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 6vw, 4rem);
-  color: var(--color-salsa-fuego);
-  font-weight: 900;
-  line-height: 1;
-  padding-top: 0.15em;
-  animation: blink 1s step-end infinite;
-  user-select: none;
-}
-
-/* Countdown message (phase transitions) */
-.countdown__message {
-  text-align: center;
-  animation: fadeInUp 0.8s ease;
-}
-
-.countdown__message-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  font-weight: 900;
-  font-style: italic;
-  color: var(--color-semolino);
-  line-height: 1.1;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-}
-
-.countdown__message-sub {
-  font-family: var(--font-body);
-  font-size: clamp(0.9rem, 2vw, 1.15rem);
-  color: var(--color-salsa-fuego);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 500;
-  line-height: 1.6;
+.hero__logo img {
+  max-width: 300px;
+  margin: 0 auto;
+  /* Filtro para que el logo se vea bien sobre el fondo */
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.4));
 }
 
 /* =====================
-   INFO — Semolino bg
+   HERO — Form wrapper
+   Contenedor del bloque de reserva integrado en el hero
+   ===================== */
+.hero__form-wrapper {
+  width: 100%;
+  max-width: 640px;
+  background: rgba(0, 26, 48, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(189, 204, 219, 0.10);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-lg);
+}
+
+/* =====================
+   RESERVA — componentes del form
+   (usados tanto en .hero__form-wrapper como standalone)
+   ===================== */
+
+/* Header del form */
+.reserva__header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.reserva__illustration {
+  width: 56px;
+  height: auto;
+  margin: 0 auto var(--space-sm);
+  opacity: 0.85;
+}
+
+.reserva__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--color-semolino);
+  margin-bottom: var(--space-xs);
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+}
+
+.reserva__subtitle {
+  font-size: clamp(0.82rem, 1.5vw, 0.95rem);
+  font-weight: 300;
+  color: var(--color-cielo-studio);
+  line-height: 1.7;
+  max-width: 440px;
+  margin: 0 auto;
+  opacity: 0.85;
+}
+
+/* Form layout */
+.reserva__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.reserva__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.reserva__row--single {
+  grid-template-columns: 1fr;
+}
+
+.reserva__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.reserva__label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-cielo-studio);
+  opacity: 0.65;
+}
+
+/* Inputs */
+.reserva__input {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--color-semolino);
+  background: rgba(189, 204, 219, 0.07);
+  border: 1px solid rgba(189, 204, 219, 0.14);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  outline: none;
+  width: 100%;
+  transition:
+    border-color var(--transition-base),
+    background-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.reserva__input::placeholder {
+  color: var(--color-cielo-studio);
+  opacity: 0.3;
+}
+
+.reserva__input:focus {
+  border-color: var(--color-salsa-fuego);
+  background: rgba(189, 204, 219, 0.11);
+  box-shadow: 0 0 0 3px rgba(204, 71, 13, 0.12);
+}
+
+.reserva__input:user-invalid {
+  border-color: #cc2d0d;
+}
+
+/* Select */
+.reserva__select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23BDCCDB' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.reserva__select option,
+.reserva__select optgroup {
+  background: var(--color-notte);
+  color: var(--color-semolino);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
+
+.reserva__select optgroup {
+  font-weight: 600;
+  color: var(--color-salsa-fuego);
+}
+
+/* Honeypot */
+.reserva__hp {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Submit */
+.reserva__submit {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--color-semolino);
+  background: var(--color-salsa-fuego);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 1rem 2rem;
+  margin-top: var(--space-xs);
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  width: 100%;
+  transition:
+    background-color var(--transition-base),
+    transform var(--transition-base),
+    opacity var(--transition-base);
+}
+
+.reserva__submit:hover {
+  background: #b33d0b;
+  transform: translateY(-2px);
+}
+
+.reserva__submit:active {
+  transform: translateY(0);
+}
+
+.reserva__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Feedback */
+.reserva__feedback {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  min-height: 1.4em;
+  transition: opacity var(--transition-base);
+}
+
+.reserva__feedback--success {
+  color: #7dcea0;
+}
+
+.reserva__feedback--error {
+  color: #e74c3c;
+}
+
+/* =====================
+   INFO — fondo semolino
    ===================== */
 .info {
   min-height: 100dvh;
   display: flex;
   align-items: center;
   background-color: var(--color-semolino);
-  padding: var(--nav-height) var(--space-md) var(--space-md);
+  padding: calc(var(--nav-height) + var(--space-md)) var(--space-md) var(--space-md);
 }
 
 .info__container {
   max-width: 960px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .info__header {
@@ -452,7 +543,6 @@ ul {
   transform: rotate(-3deg) scale(1.05);
 }
 
-/* Features */
 .info__features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -519,227 +609,10 @@ ul {
 }
 
 /* =====================
-   RESERVA — Notte bg
-   ===================== */
-.reserva {
-  min-height: 100dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-notte);
-  padding: calc(var(--nav-height) + var(--space-md)) var(--space-md) var(--space-md);
-  position: relative;
-}
-
-.reserva::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 60% 40%, rgba(204, 71, 13, 0.04) 0%, transparent 55%),
-    radial-gradient(ellipse at 20% 80%, rgba(36, 63, 43, 0.08) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.reserva__container {
-  max-width: 580px;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-/* Header */
-.reserva__header {
-  text-align: center;
-  margin-bottom: var(--space-lg);
-}
-
-.reserva__illustration {
-  width: 64px;
-  height: auto;
-  margin: 0 auto var(--space-sm);
-  opacity: 0.85;
-}
-
-.reserva__title {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  font-weight: 900;
-  font-style: italic;
-  color: var(--color-semolino);
-  margin-bottom: var(--space-xs);
-  letter-spacing: 0.03em;
-}
-
-.reserva__subtitle {
-  font-size: clamp(0.85rem, 1.6vw, 1rem);
-  font-weight: 300;
-  color: var(--color-cielo-studio);
-  line-height: 1.7;
-  max-width: 460px;
-  margin: 0 auto;
-  opacity: 0.8;
-}
-
-/* Form layout */
-.reserva__form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.reserva__row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-sm);
-}
-
-.reserva__row--single {
-  grid-template-columns: 1fr;
-  width: 100%;
-}
-
-.reserva__field {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2xs);
-}
-
-.reserva__label {
-  font-size: 0.7rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--color-cielo-studio);
-  opacity: 0.6;
-}
-
-/* Inputs */
-.reserva__input {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: var(--color-semolino);
-  background: rgba(189, 204, 219, 0.06);
-  border: 1px solid rgba(189, 204, 219, 0.12);
-  border-radius: var(--radius-md);
-  padding: 0.75rem 1rem;
-  outline: none;
-  transition:
-    border-color var(--transition-base),
-    background-color var(--transition-base),
-    box-shadow var(--transition-base);
-}
-
-.reserva__input::placeholder {
-  color: var(--color-cielo-studio);
-  opacity: 0.3;
-}
-
-.reserva__input:focus {
-  border-color: var(--color-salsa-fuego);
-  background: rgba(189, 204, 219, 0.1);
-  box-shadow: 0 0 0 3px rgba(204, 71, 13, 0.12);
-}
-
-/* Validation states */
-.reserva__input:user-invalid {
-  border-color: #cc2d0d;
-}
-
-/* Select dropdown */
-.reserva__select {
-  appearance: none;
-  -webkit-appearance: none;
-  cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23BDCCDB' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  padding-right: 2.5rem;
-}
-
-.reserva__select option,
-.reserva__select optgroup {
-  background: var(--color-notte);
-  color: var(--color-semolino);
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  padding: 0.5rem;
-}
-
-.reserva__select optgroup {
-  font-weight: 600;
-  color: var(--color-salsa-fuego);
-}
-
-/* Honeypot */
-.reserva__hp {
-  position: absolute;
-  left: -9999px;
-  opacity: 0;
-  height: 0;
-  overflow: hidden;
-}
-
-/* Submit button */
-.reserva__submit {
-  font-family: var(--font-display);
-  font-size: clamp(0.95rem, 2vw, 1.1rem);
-  font-weight: 900;
-  font-style: italic;
-  color: var(--color-semolino);
-  background: var(--color-salsa-fuego);
-  border: none;
-  border-radius: var(--radius-md);
-  padding: 1rem 2rem;
-  margin-top: var(--space-xs);
-  cursor: pointer;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  transition:
-    background-color var(--transition-base),
-    transform var(--transition-base),
-    opacity var(--transition-base);
-}
-
-.reserva__submit:hover {
-  background: #b33d0b;
-  transform: translateY(-2px);
-}
-
-.reserva__submit:active {
-  transform: translateY(0);
-}
-
-.reserva__submit:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* Feedback message */
-.reserva__feedback {
-  text-align: center;
-  font-size: 0.85rem;
-  font-weight: 500;
-  min-height: 1.4em;
-  transition: opacity var(--transition-base);
-}
-
-.reserva__feedback--success {
-  color: #7dcea0;
-}
-
-.reserva__feedback--error {
-  color: #e74c3c;
-}
-
-/* =====================
-   LOCATION — Notte bg
+   LOCATION
    ===================== */
 .location {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -853,12 +726,6 @@ ul {
   opacity: 0.7;
 }
 
-.footer__address-icon {
-  width: 13px;
-  height: 13px;
-  flex-shrink: 0;
-}
-
 .footer__link {
   display: inline-flex;
   align-items: center;
@@ -886,7 +753,7 @@ ul {
 }
 
 /* =====================
-   TOAST NOTIFICATION
+   TOAST
    ===================== */
 .toast {
   position: fixed;
@@ -953,15 +820,9 @@ ul {
   }
 }
 
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
 /* =====================
-   RESPONSIVE
+   RESPONSIVE — Tablet
    ===================== */
-
-/* ----- Tablet / Small screens ----- */
 @media (max-width: 768px) {
 
   /* NAV */
@@ -976,15 +837,29 @@ ul {
 
   /* HERO */
   .hero {
-    padding: calc(var(--nav-height) + var(--space-sm)) var(--space-sm) var(--space-sm);
+    padding: calc(var(--nav-height) + var(--space-sm)) var(--space-sm) var(--space-md);
+    align-items: flex-start;
+  }
+
+  .hero__content {
+    gap: var(--space-md);
   }
 
   .hero__logo img {
     max-width: 220px;
   }
 
-  .hero__tagline {
-    max-width: 400px;
+  .hero__form-wrapper {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  /* RESERVA */
+  .reserva__row {
+    grid-template-columns: 1fr;
+  }
+
+  .reserva__subtitle {
+    max-width: 100%;
   }
 
   /* INFO */
@@ -1012,27 +887,6 @@ ul {
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  /* RESERVA */
-  .reserva {
-    padding: calc(var(--nav-height) + var(--space-sm)) var(--space-sm) var(--space-sm);
-  }
-
-  .reserva__container {
-    max-width: 100%;
-  }
-
-  .reserva__row {
-    grid-template-columns: 1fr;
-  }
-
-  .reserva__row--single {
-    width: 100%;
-  }
-
-  .reserva__subtitle {
-    max-width: 100%;
   }
 
   /* LOCATION */
@@ -1064,7 +918,9 @@ ul {
   }
 }
 
-/* ----- Mobile ----- */
+/* =====================
+   RESPONSIVE — Mobile
+   ===================== */
 @media (max-width: 480px) {
 
   /* NAV */
@@ -1086,65 +942,17 @@ ul {
   }
 
   /* HERO */
-  .countdown {
-    gap: 0.4rem;
+  .hero__logo img {
+    max-width: 180px;
   }
 
-  .countdown__block {
-    min-width: 48px;
-  }
-
-  .countdown__number {
-    font-size: clamp(2.2rem, 12vw, 3rem);
-  }
-
-  .countdown__separator {
-    font-size: clamp(1.5rem, 8vw, 2.5rem);
-  }
-
-  .countdown__label {
-    font-size: 0.55rem;
-    letter-spacing: 0.15em;
-  }
-
-  .countdown__message-title {
-    font-size: clamp(1.6rem, 7vw, 2.2rem);
-  }
-
-  .countdown__message-sub {
-    font-size: clamp(0.8rem, 3vw, 0.95rem);
-    letter-spacing: 0.06em;
-  }
-
-  .hero__date {
-    font-size: 0.7rem;
-  }
-
-  .hero__cta {
-    font-size: 0.85rem;
-    padding: 0.75rem 1.8rem;
-  }
-
-  /* INFO */
-  .feature {
-    padding: var(--space-sm);
-  }
-
-  /* RESERVA */
-  .reserva {
-    padding: calc(var(--nav-height) + var(--space-xs)) var(--space-xs) var(--space-sm);
-  }
-
-  .reserva__header {
-    margin-bottom: var(--space-md);
-  }
-
-  .reserva__illustration {
-    width: 48px;
+  .hero__form-wrapper {
+    padding: var(--space-md) var(--space-xs);
+    border-radius: 10px;
   }
 
   .reserva__title {
-    font-size: clamp(1.5rem, 7vw, 1.8rem);
+    font-size: clamp(1.4rem, 6vw, 1.7rem);
   }
 
   .reserva__subtitle {
@@ -1157,7 +965,7 @@ ul {
   }
 
   .reserva__label {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
   }
 
   .reserva__input {
@@ -1169,12 +977,16 @@ ul {
   .reserva__submit {
     font-size: 0.95rem;
     padding: 0.9rem 1.5rem;
-    width: 100%;
     border-radius: 10px;
   }
 
   .reserva__feedback {
     font-size: 0.8rem;
+  }
+
+  /* INFO */
+  .feature {
+    padding: var(--space-sm);
   }
 
   /* TOAST */
@@ -1186,22 +998,26 @@ ul {
   }
 }
 
-/* ----- Large screens ----- */
+/* =====================
+   RESPONSIVE — Large
+   ===================== */
 @media (min-width: 1200px) {
   .hero__content {
-    max-width: 900px;
+    max-width: 720px;
+  }
+
+  .hero__form-wrapper {
+    max-width: 680px;
   }
 
   .info__container {
     max-width: 1060px;
   }
-
-  .reserva__container {
-    max-width: 640px;
-  }
 }
 
-/* ----- Accessibility ----- */
+/* =====================
+   Accessibility
+   ===================== */
 @media (prefers-reduced-motion: reduce) {
   .landing {
     scroll-snap-type: none;

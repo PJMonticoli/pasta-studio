@@ -6,15 +6,14 @@ const APPS_SCRIPT_URL = import.meta.env.VITE_APPS_SCRIPT_URL || '';
 
 function validateForm(data) {
   const errors = [];
-
   if (!data.nombre.trim()) errors.push('Nombre es requerido');
   if (!data.apellido.trim()) errors.push('Apellido es requerido');
   if (!data.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
     errors.push('Email no válido');
   }
   if (!data.telefono.trim()) errors.push('Teléfono es requerido');
+  if (!data.cantidad) errors.push('Seleccioná cuántas personas'); 
   if (!data.fecha) errors.push('Seleccioná una fecha');
-
   return errors;
 }
 
@@ -58,6 +57,7 @@ export function initForm() {
       apellido: form.apellido.value,
       email: form.email.value,
       telefono: form.telefono.value,
+      cantidad: form.cantidad.value,
       fecha: form.fecha.value,
     };
 
@@ -83,7 +83,7 @@ export function initForm() {
 
       showFeedback(
         feedback,
-        '¡Registro exitoso!',
+        '¡Listo! Pronto nos contactamos para confirmar tu reserva.',
         'success'
       );
 
