@@ -115,13 +115,13 @@ ul {
    SCROLL SNAP
    ===================== */
 .landing {
-  height: 100dvh;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
+  height: auto;             
+  overflow-y: visible;     
+  scroll-snap-type: none;    
 }
 
 .section {
-  scroll-snap-align: start;
+  scroll-snap-align: unset;
 }
 
 /* =====================
@@ -674,7 +674,7 @@ ul {
   background-color: var(--color-notte);
   padding: var(--space-sm) var(--space-md);
   border-top: 1px solid rgba(189, 204, 219, 0.08);
-  scroll-snap-align: end;
+  scroll-snap-align: unset;
 }
 
 .footer__container {
@@ -1013,9 +1013,9 @@ ul {
    ===================== */
 @media (prefers-reduced-motion: reduce) {
   .landing {
-    scroll-snap-type: none;
+    scroll-snap-type: none; 
   }
-
+  
   *,
   *::before,
   *::after {
