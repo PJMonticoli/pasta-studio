@@ -304,6 +304,13 @@ ul {
   opacity: 1;
 }
 
+.reserva__highlight {
+  font-weight: 600;
+  color: var(--color-notte);
+  white-space: nowrap;   
+  opacity: 1;
+}
+
 .reserva__form {
   display: flex;
   flex-direction: column;
